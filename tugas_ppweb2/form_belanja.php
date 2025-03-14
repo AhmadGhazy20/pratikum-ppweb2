@@ -38,7 +38,7 @@
             <hr />
         </div>
         <div class="col-12 col-md-8 align-middle">
-            <form method="" action="">
+            <form method="post" action="form_belanja.php">
                 <div class="form-group row text-end mt-3">
                     <label for="nama" class="col-4 col-form-label font-weight-bold text-right">Customer</label>
                     <div class="col-6">
@@ -81,13 +81,30 @@
     </div>
 
     <?php
+    if (isset($_POST['proses'])) {
     // MENANGKAP DATA YANG DI-INPUT
-
-    // MENGHITUNG TOTAL BELANJA MENGGUNAKAN IF ELSE ATAU SWITCH
-
-    // MENCETAK HASIL
-    // echo 'Nama Customer : ' . $nama_customer;
-    ?>
+    $nama_customer = $_POST['nama'];
+    $produk = $_POST['produk'];
+    $jumlah = $_POST['jumlah'];
+        if ($produk == 'Televisi') {
+            $harga = 4200000;
+        } elseif ($produk == 'Kulkas') {
+            $harga = 3100000;
+        } elseif ($produk == 'Mesin Cuci') {
+            $harga = 3800000;
+        }
+        $total = $harga * $jumlah;
+        
+        // MENGHITUNG TOTAL BELANJA MENGGUNAKAN IF ELSE ATAU SWITCH
+        
+        // MENCETAK HASIL
+        echo 'Nama Customer : ' . $nama_customer;
+        echo '<br />Produk Pilihan : ' . $produk;
+        echo '<br />Harga : ' . $harga;
+        echo '<br />Jumlah : ' . $jumlah;
+        echo '<br />Total Belanja : ' . $total;
+    }
+        ?>
 
     </div>
 </body>
